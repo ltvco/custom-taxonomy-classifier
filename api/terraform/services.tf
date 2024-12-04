@@ -109,11 +109,7 @@ resource "google_cloud_run_v2_service" "classify_service_run" {
   }
 
   depends_on = [
-    google_project_service.apis,
-    google_project_iam_member.classify_api_sa_token_creator,
     google_cloud_run_v2_job.taxonomy_job_run,
-    google_storage_bucket.vector_search_bucket,
-    google_sql_database_instance.classify_api_instance,
   ]
 }
 
