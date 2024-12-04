@@ -32,7 +32,7 @@ message and run the command again.
 
 ```sh
 git clone git@github.com:google-marketing-solutions/custom-taxonomy-classifier.git && \
-cd custom_taxonomy_classifier/api && \
+cd custom-taxonomy-classifier/api && \
 chmod 775 ./setup.sh && \
 ./setup.sh
 ```
