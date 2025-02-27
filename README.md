@@ -118,7 +118,7 @@ The endpoint can be used to retrieve the current status of a particular task.
 
 **Parameters**
 
-*   *task_id* (required): The ID of the Google Spreadsheet.
+*   *task_id* (required): The ID of the task to retrieve.
 
 ```sh
 curl -X GET \
