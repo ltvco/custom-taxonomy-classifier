@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Tests for classifier."""
-
 from unittest import mock
 from google.cloud import aiplatform
 from common import ai_platform_client as ai_platform_client_lib
