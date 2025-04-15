@@ -34,9 +34,11 @@ from absl.testing import absltest
 _TEST_CLASSIFY_RESPONSE_SUCCESS = [
     {
         'text': 'foobar',
+        'media_uri': None,
+        'media_description': None,
         'categories': [
-            {'name': 'category_1', 'similarity': 0.98},
-            {'name': 'category_2', 'similarity': 0.89},
+            {'name': 'category_1', 'similarity': '0.98'},
+            {'name': 'category_2', 'similarity': '0.89'},
         ],
         'embedding': [0.1, 0.2, 0.3],
     },
@@ -45,10 +47,13 @@ _TEST_CLASSIFY_RESPONSE_SUCCESS = [
 _TEST_CLASSIFY_RESPONSE_SUCCESS_NO_EMBEDDINGS = [
     {
         'text': 'foobar',
+        'media_uri': None,
+        'media_description': None,
         'categories': [
-            {'name': 'category_1', 'similarity': 0.98},
-            {'name': 'category_2', 'similarity': 0.89},
+            {'name': 'category_1', 'similarity': '0.98'},
+            {'name': 'category_2', 'similarity': '0.89'},
         ],
+        'embedding': None,
     },
 ]
 
@@ -61,12 +66,13 @@ _TEST_GET_TASK_STATUS_RESPONSE_SUCCESS = {
     'status': 'SUCCEEDED',
     'time_created': '2024-01-01T00:00:00+00:00',
     'time_updated': '2024-01-01T00:00:00+00:00',
-    'message': None,
 }
 
 _TEST_GET_TASK_STATUS_RESPONSE_NOT_EXIST = {
     'task_id': 'fake_task_id',
     'status': 'NOT_FOUND',
+    'time_created': None,
+    'time_updated': None,
 }
 
 _TEST_OVERRIDE_SPECS = {
@@ -281,7 +287,6 @@ class MainTest(absltest.TestCase):
         'status': 'SUCCEEDED',
         'time_created': fake_datetime,
         'time_updated': fake_datetime,
-        'message': None,
     }
     with testclient.TestClient(main.app) as client:
       response = client.get(f'/task_status/{fake_task_id}')

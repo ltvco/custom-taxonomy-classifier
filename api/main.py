@@ -70,7 +70,6 @@ class TaskStatusResponse(pydantic.BaseModel):
   status: str
   time_created: Optional[datetime.datetime] = None
   time_updated: Optional[datetime.datetime] = None
-  message: Optional[str] = None
 
 
 @app.on_event('startup')
