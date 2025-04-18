@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Tests for vertex_client.py."""
-
 import os
 from unittest import mock
 import google.api_core

@@ -28,8 +28,8 @@ from vertexai import generative_models
 from vertexai.language_models import TextEmbeddingModel
 import tenacity
 
-_TEXT_EMBEDDING_MODEL = 'textembedding-gecko-multilingual@001'
-_GENERATIVE_MODEL = 'gemini-1.5-flash-001'
+_TEXT_EMBEDDING_MODEL = 'text-multilingual-embedding-002'
+_GENERATIVE_MODEL = 'gemini-2.0-flash-lite'
 
 _GENERATION_CONFIG = generative_models.GenerationConfig(
     temperature=0.8,
@@ -228,6 +228,8 @@ class VertexClient:
           len(batch),
           pct_complete,
       )
+      # TODO(): Determine appropriate task type for embeddings
+      # before implementing. E.g. CLASSIFICATION vs SEMANTIC_SIMILARITY.
       embeddings = self._text_embeddings_client.get_embeddings(batch)
       for embedding in embeddings:
         vector = embedding.values
